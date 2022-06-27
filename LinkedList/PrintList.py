@@ -1,5 +1,3 @@
-from mimetypes import init
-
 
 class Node:
     def __init__(self, value) -> None:
@@ -42,4 +40,3 @@ newLL.append(200)
 newLL.append(300)
 
 newLL.printList()
- 
