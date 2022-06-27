@@ -1,4 +1,3 @@
-
 class Node:
     def __init__(self, value) -> None:
         self.value = value
@@ -24,6 +23,7 @@ class LinkedList:
     def pop(self):
         if self.head is None:
             return None
+
         current = self.head
         previous = self.head
 
@@ -33,14 +33,19 @@ class LinkedList:
         self.tail = previous
         self.tail.next = None
 
-        if self.length == 1:
-            self.head = None
-            self.tail = None
-        self.length -= 1
+    def prepend(self, value):
+        newNode = Node(value)
+
+        if self.head is None:
+            self.head = newNode
+            self.tail = newNode
+        else:
+            newNode.next = self.head
+            self.head = newNode
 
     def printList(self):
         if self.head is None:
-            print("Empty LinkedList")
+            print("Empty")
 
         current = self.head
         while current is not None:
@@ -51,8 +56,8 @@ class LinkedList:
 
 
 newLL = LinkedList()
-newLL.append(100)
-newLL.append(200)
-newLL.append(300)
+newLL.append(10)
+newLL.append(20)
+newLL.prepend(33)
 newLL.pop()
 newLL.printList()
